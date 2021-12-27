@@ -3,6 +3,7 @@
   --color-primary: #3282b8;
   --color-secondary: #0f4c75;
   --bg: #1b262c;
+  --box-shadow-transparent: rgba(211, 214, 219, 0.3);
 }
 
 body {
@@ -10,7 +11,7 @@ body {
     "Helvetica Neue", sans-serif;
   background-color: var(--bg);
   color: var(--color);
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
   line-height: 1;
   min-height: auto;
 }
@@ -21,11 +22,11 @@ a {
 }
 
 .transition {
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 html,
