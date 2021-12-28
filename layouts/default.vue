@@ -20,6 +20,10 @@ export default {
 
 <style lang="scss">
 #body {
-  min-height: 100vh;
+  min-height: calc(100vh - 122px);
+
+  @media screen and (max-width: 800px) {
+    min-height: calc(100vh - 37px);
+  }
 }
 </style>
