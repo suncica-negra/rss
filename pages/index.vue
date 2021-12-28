@@ -7,6 +7,6 @@
 
 <script>
 export default {
-  name: "IndexPage",
+  name: "Landing",
 };
 </script>
