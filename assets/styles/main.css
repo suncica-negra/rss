@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500;600;700&display=swap');
+
 :root {
   --color: #bbe1fa;
   --color-primary: #3282b8;
@@ -116,6 +118,7 @@ video {
   margin: 0;
   padding: 0;
   vertical-align: baseline;
+  font-family: 'Source Code Pro', monospace;
 }
 
 /* HTML5 display-role reset for older browsers */
