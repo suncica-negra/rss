@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500;600;700&display=swap");
 
 :root {
   --color: #bbe1fa;
@@ -6,6 +6,7 @@
   --color-secondary: #0f4c75;
   --bg: #1b262c;
   --box-shadow-transparent: rgba(211, 214, 219, 0.3);
+  --orange: #d89216;
 }
 
 body {
@@ -29,6 +30,26 @@ a {
   -o-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 800px) {
+  .mobile-only {
+    display: block;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 801px) {
+  .mobile-only {
+    display: none;
+  }
+
+  .desktop-only {
+    display: block;
+  }
 }
 
 html,
@@ -118,7 +139,7 @@ video {
   margin: 0;
   padding: 0;
   vertical-align: baseline;
-  font-family: 'Source Code Pro', monospace;
+  font-family: "Source Code Pro", monospace;
 }
 
 /* HTML5 display-role reset for older browsers */
