@@ -2,16 +2,7 @@
   <div>
     <div id="header-desktop" class="desktop-only">
       <div class="max-width-desktop">
-        <div class="header-wrapper">
-          <div v-for="(link, i) in linksToPages" :key="i" class="link-holder">
-            <nuxt-link v-if="link === 'home'" to="/" class="transition">
-              {{ link.toUpperCase() }}
-            </nuxt-link>
-            <nuxt-link v-else :to="'/' + link" class="transition">
-              {{ link.toUpperCase() }}
-            </nuxt-link>
-          </div>
-        </div>
+        <HeaderLinks :links="linksToPages" />
       </div>
     </div>
     <div id="header-mobile" class="mobile-only">
@@ -31,21 +22,7 @@
         leave-active-class="slide-out-left"
       >
         <div v-if="dropdown" class="margin">
-          <div
-            v-for="link in linksToPages"
-            :key="link"
-            class="link-holder"
-            @click="closeDropdown"
-          >
-            <div class="link-wrapper">
-              <nuxt-link v-if="link === 'home'" to="/" class="transition">
-                {{ link.toUpperCase() }}
-              </nuxt-link>
-              <nuxt-link v-else :to="'/' + link" class="transition">
-                {{ link.toUpperCase() }}
-              </nuxt-link>
-            </div>
-          </div>
+          <HeaderLinks :links="linksToPages" @closeMenu="closeDropdown" />
         </div>
       </transition>
     </div>
@@ -53,8 +30,13 @@
 </template>
 
 <script>
+import HeaderLinks from "./HeaderLinks.vue";
+
 export default {
   name: "Header",
+  components: {
+    HeaderLinks,
+  },
   data() {
     return {
       linksToPages: [
@@ -89,12 +71,6 @@ export default {
   .max-width-desktop {
     max-width: 1920px;
     margin: 0 auto;
-
-    .header-wrapper {
-      display: flex;
-      justify-content: space-between;
-      max-width: 800px;
-    }
   }
 }
 
@@ -177,66 +153,6 @@ export default {
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
     box-shadow: 0 0 7px var(--box-shadow-transparent);
-
-    .link-holder {
-      padding-bottom: 15px;
-
-      .link-wrapper {
-        padding-bottom: 5px;
-        position: relative;
-      }
-    }
-  }
-}
-
-.link-holder {
-  position: relative;
-  padding-bottom: 5px;
-
-  a {
-    color: var(--color-primary);
-    letter-spacing: 2px;
-
-    &:after,
-    &:before {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      width: 0;
-      height: 1px;
-      margin: 5px 0 0;
-      transition: all 0.3s ease-out;
-      opacity: 0;
-      background-color: var(--orange);
-    }
-
-    &:before {
-      left: 50%;
-    }
-
-    &:after {
-      right: 50%;
-    }
-
-    &:hover {
-      color: var(--orange);
-
-      &:after,
-      &:before {
-        width: 50%;
-        opacity: 1;
-      }
-    }
-
-    &.nuxt-link-exact-active {
-      color: var(--orange);
-
-      &:after,
-      &:before {
-        width: 50%;
-        opacity: 1;
-      }
-    }
   }
 }
 </style>
