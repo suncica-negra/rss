@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="header-always-on-top">
     <div id="header-desktop" class="desktop-only">
       <div class="max-width-desktop">
         <HeaderLinks :links="linksToPages" />
@@ -64,6 +64,16 @@ export default {
 </script>
 
 <style lang="scss">
+.header-always-on-top {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(27, 38, 44, 1) 53%,
+    rgba(27, 38, 44, 0.87) 100%
+  );
+}
+
 #header-desktop {
   padding: 30px;
   box-shadow: 0 0 7px var(--box-shadow-transparent);
