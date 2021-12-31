@@ -25,7 +25,7 @@
 </template>
 
 <script>
-const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
+import { getDataFromFeed } from "../helpers/apiReader";
 
 export default {
   name: "Landing",
@@ -38,20 +38,12 @@ export default {
     this.getArticlesData();
   },
   methods: {
-    async getArticlesData() {
-      await this.$axios
-        .get(CORS_PROXY + "https://www.24sata.hr/feeds/aktualno.xml")
-        .then((response) => {
-          var _this = this;
-          var xmlFile = response.data;
-          var parseString = require("xml2js").parseString;
-          parseString(xmlFile, async function (err, result) {
-            return (_this.feedsData = result.rss.channel[0].item);
-          });
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+    getArticlesData() {
+      var that = this;
+      this.feedsData = getDataFromFeed.readFromAPI(
+        "https://www.24sata.hr/feeds/aktualno.xml",
+        that
+      );
     },
   },
 };
