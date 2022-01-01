@@ -24,4 +24,12 @@ h2 {
   font-size: 40px;
   display: flex;
 }
+
+@media screen and (min-width: 1920px) {
+  h2 {
+    max-width: 1920px;
+    padding: 30px;
+    margin: 0 auto;
+  }
+}
 </style>
