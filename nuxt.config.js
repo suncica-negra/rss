@@ -40,7 +40,13 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    ['vue-scrollto/nuxt', {
+      duration: 1000,
+      easing: "ease-in-out",
+      offset: 0,
+      container: "body"
+    }],
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
