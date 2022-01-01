@@ -67,6 +67,7 @@ export default {
 .header-always-on-top {
   position: sticky;
   top: 0;
+  z-index: 1;
   background: linear-gradient(
     180deg,
     rgba(27, 38, 44, 1) 53%,
@@ -92,7 +93,7 @@ export default {
 
   .custom {
     position: fixed;
-    top: 30px;
+    top: 7px;
     right: 30px;
     z-index: 1;
     -webkit-user-select: none;

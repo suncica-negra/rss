@@ -50,6 +50,7 @@ export default {
   a {
     color: var(--color-primary);
     letter-spacing: 2px;
+    font-size: 16px;
 
     &:after,
     &:before {
