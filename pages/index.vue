@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Aktualno <span class="material-icons">rss_feed</span></h2>
+    <Title :title="title" />
     <div class="spinner" v-show="!feedsData">
       <img src="~/assets/images/spinner.gif" alt="Spinner" />
       <p>Pričekajte....</p>
@@ -24,13 +24,16 @@
 </template>
 
 <script>
+import Title from '../components/Title.vue';
 import { getDataFromFeed } from "../helpers/apiReader";
 
 export default {
+  components: { Title },
   name: "Landing",
   data() {
     return {
       feedsData: null,
+      title: "Aktualno"
     };
   },
   created() {
@@ -64,12 +67,6 @@ export default {
     height: 23px;
     color: var(--aqua);
   }
-}
-
-h2 {
-  margin: 30px;
-  font-size: 40px;
-  display: flex;
 }
 
 .article-wrapper {
