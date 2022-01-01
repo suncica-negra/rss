@@ -1,10 +1,7 @@
 <template>
   <div>
     <Title :title="title" />
-    <div class="spinner" v-show="!feedsData">
-      <img src="~/assets/images/spinner.gif" alt="Spinner" />
-      <p>Pričekajte....</p>
-    </div>
+    <Spinner v-show="!feedsData" />
     <div v-if="feedsData" class="article-wrapper">
       <div class="article-holder">
         <div v-for="(item, i) in feedsData" :key="i" class="article transition">
@@ -24,16 +21,17 @@
 </template>
 
 <script>
-import Title from '../components/Title.vue';
+import Title from "../components/Title.vue";
+import Spinner from "../components/Spinner.vue";
 import { getDataFromFeed } from "../helpers/apiReader";
 
 export default {
-  components: { Title },
+  components: { Title, Spinner },
   name: "Landing",
   data() {
     return {
       feedsData: null,
-      title: "Aktualno"
+      title: "Aktualno",
     };
   },
   created() {
@@ -52,23 +50,6 @@ export default {
 </script>
 
 <style lang="scss">
-.spinner {
-  position: relative;
-  text-align: center;
-  min-height: 204px;
-
-  p {
-    margin: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height: 23px;
-    color: var(--aqua);
-  }
-}
-
 .article-wrapper {
   padding: 30px;
 
