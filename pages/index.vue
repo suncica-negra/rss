@@ -31,10 +31,7 @@ export default {
   methods: {
     getArticlesData() {
       var that = this;
-      this.feedsData = getDataFromFeed.readFromAPI(
-        "https://www.24sata.hr/feeds/aktualno.xml",
-        that
-      );
+      this.feedsData = getDataFromFeed.readFromAPI("aktualno", that);
     },
   },
 };

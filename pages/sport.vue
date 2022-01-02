@@ -1,7 +1,8 @@
 <template>
   <div>
     <Title :title="title" />
-    <Spinner v-show="!feedsData" />
+    <Error v-if="error" />
+    <Spinner v-show="loading" />
     <ArticleSummaryBox v-if="feedsData" :feedsData="feedsData" />
   </div>
 </template>
@@ -19,6 +20,8 @@ export default {
     return {
       feedsData: null,
       title: "Sport",
+      loading: true,
+      error: false,
     };
   },
   created() {
@@ -27,10 +30,7 @@ export default {
   methods: {
     getArticlesData() {
       var that = this;
-      this.feedsData = getDataFromFeed.readFromAPI(
-        "https://www.24sata.hr/feeds/sport.xml",
-        that
-      );
+      this.feedsData = getDataFromFeed.readFromAPI("sport", that);
     },
   },
 };

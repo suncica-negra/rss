@@ -2,7 +2,7 @@ export const getDataFromFeed = {
   readFromAPI(apiUrl, that) {
     const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
     that.$axios
-      .get(CORS_PROXY + apiUrl)
+      .get(CORS_PROXY + `https://www.24sata.hr/feeds/${apiUrl}.xml`)
       .then((response) => {
         var xmlFile = response.data;
         parseFetchedData.getData(xmlFile, that);
