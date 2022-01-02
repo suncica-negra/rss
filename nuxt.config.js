@@ -49,7 +49,9 @@ export default {
       container: "body"
     }],
   ],
-
+  router: {
+    base: '/rss/'
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }
