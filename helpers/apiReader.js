@@ -9,6 +9,8 @@ export const getDataFromFeed = {
       })
       .catch((error) => {
         console.log(error);
+        that.error = true;
+        that.loading = false;
       });
   }
 }
@@ -17,8 +19,17 @@ export const parseFetchedData = {
   getData(xmlFile, that) {
     var parseString = require("xml2js").parseString;
     parseString(xmlFile, async function (err, result) {
-      err && console.log("Error in parsing data");
-      return (that.feedsData = result.rss.channel[0].item);
+      if (err) {
+        console.log("Error in parsing data.", err),
+          that.error = true,
+          that.loading = false
+      } else {
+        return (
+          that.feedsData = result?.rss?.channel[0]?.item,
+          that.error = false,
+          that.loading = false
+        );
+      }
     });
   }
 }
