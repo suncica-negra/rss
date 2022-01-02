@@ -2,13 +2,23 @@
   <div class="article-wrapper">
     <div class="article-holder">
       <div v-for="(item, i) in feedsData" :key="i" class="article transition">
-        <h4 class="ribbon">{{ item.category[0] }}</h4>
-        <h3>{{ item.title[0] }}</h3>
-        <p class="date">{{ item.pubDate[0].slice(0, -5) }}</p>
-        <img :src="item.enclosure[0].$.url" alt="Spinner" />
-        <p class="description">{{ item.description[0].split(">")[1] }}</p>
-        <p class="autor">Autor: {{ item["dc:creator"][0]._ }}</p>
-        <a :href="item.link[0]" target="_blank">
+        <h4 v-if="item.category" class="ribbon">{{ item.category[0] }}</h4>
+        <h3 v-if="item.title">{{ item.title[0] }}</h3>
+        <p v-if="item.pubDate" class="date">
+          {{ item.pubDate[0].slice(0, -5) }}
+        </p>
+        <img
+          v-if="item.enclosure"
+          :src="item.enclosure[0].$.url"
+          alt="Article image"
+        />
+        <p v-if="item.description" class="description">
+          {{ item.description[0].split(">")[1] }}
+        </p>
+        <p v-if="item['dc:creator']" class="autor">
+          Autor: {{ item["dc:creator"][0]._ }}
+        </p>
+        <a v-if="item.link" :href="item.link[0]" target="_blank">
           <button class="transition">VIŠE...</button>
         </a>
       </div>
