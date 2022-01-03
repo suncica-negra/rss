@@ -17,6 +17,8 @@ $ npm run start
 $ npm run generate
 ```
 
+The website is up and running on https://suncica-negra.github.io/rss/
+
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
 
 ## Special Directories
