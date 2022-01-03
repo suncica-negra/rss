@@ -15,6 +15,9 @@ $ npm run start
 
 # generate static project
 $ npm run generate
+
+# deploy after generation of static project
+$ npm run deploy
 ```
 
 The website is up and running on https://suncica-negra.github.io/rss/
