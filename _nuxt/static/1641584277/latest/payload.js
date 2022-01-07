@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/latest", {data:[{}],fetch:{},mutations:void 0});
